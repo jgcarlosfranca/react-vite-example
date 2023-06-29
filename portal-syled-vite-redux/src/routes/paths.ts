@@ -13,7 +13,8 @@ interface IPaths {
 }
 
 interface IEndPointsPaths {
-  Users: string,
+  user: string,
+  login: string,
 }
 const paths: IPaths = {
   Root: "/",
@@ -30,7 +31,8 @@ const paths: IPaths = {
 };
 
 const endPointsPaths: IEndPointsPaths = {
-  Users: "/user",
+  user: "/user",
+  login: "/login",
 }
 
 export { paths, endPointsPaths };
