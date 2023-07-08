@@ -2,7 +2,7 @@ import { createServer, Factory, Model, Response } from "miragejs";
 import { factoryModels } from "../Model";
 import { endPointsPaths } from "../../routes/paths";
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = import.meta.env.VITE_BACKEND_BASEURL;
 
 export function makeMirageServer() {
     const server = createServer({
