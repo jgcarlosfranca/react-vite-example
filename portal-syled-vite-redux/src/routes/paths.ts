@@ -10,6 +10,7 @@ interface IPaths {
   LabFont: string,
   Beautify: string,
   Table: string,
+  Login: string,
 }
 
 interface IEndPointsPaths {
@@ -28,6 +29,7 @@ const paths: IPaths = {
   LabFont: "Lab/Fonts",
   Beautify: "/Beautify",
   Table: "Tables",
+  Login: "/Login",
 };
 
 const endPointsPaths: IEndPointsPaths = {
