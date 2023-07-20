@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import store from "./redux/Store";
 import App from "./App";
 
-import "./styles/reset.css";
+import "./Styles/reset.css";
 
 if (import.meta.env.DEV) {
   makeMirageServer();
