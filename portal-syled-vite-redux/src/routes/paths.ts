@@ -1,5 +1,4 @@
 interface IPaths {
-  Root: string,
   Calendar: string,
   Forms: string,
   Modal: string,
@@ -11,6 +10,7 @@ interface IPaths {
   Beautify: string,
   Table: string,
   Login: string,
+  Land: string,
 }
 
 interface IEndPointsPaths {
@@ -18,7 +18,7 @@ interface IEndPointsPaths {
   login: string,
 }
 const paths: IPaths = {
-  Root: "/",
+  Land: "/",
   Calendar: "/Calendar",
   Forms: "/Forms",
   Modal: "Modal",
