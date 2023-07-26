@@ -1,13 +1,22 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PrivateRoute from './routes/Private';
+import Login from './pages/Login/Login';
+import { paths } from './routes/paths';
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <div>
+      <Router>
+        <Routes>
+          <Route path={paths.Login} element={<Login />} />
+          <Route element={<PrivateRoute />}>
 
-      </div>
+          </Route>
+        </Routes>
+      </Router>
     </>
   )
 }
