@@ -1,6 +1,6 @@
 import { apiSlice } from "../api";
-import { endPointsPaths } from "src/routes/paths";
-import { ILoginResponse, ILoginBody } from "src/Types/Api/login";
+import { endPointsPaths } from "../../routes/paths";
+import { ILoginResponse, ILoginBody } from "../../Types/Api/login";
 
 export const loginSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
