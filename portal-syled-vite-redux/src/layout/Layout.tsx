@@ -20,7 +20,7 @@ const LayoutWrapper = styled.div<ILayoutProps>`
 `;
 
 const Layout = () => {
-  const sideBarState = 'LARGE';
+  const sideBarState = 'SIDEBAR_LARGE';
 
   return (
     <LayoutWrapper sideBarWidth={sideBarState}>
