@@ -11,7 +11,6 @@ const LayoutWrapper = styled.div<ILayoutProps>`
   grid-template-columns: repeat(13, 1fr);
   width: 100%;
   main {
-    min-width: 1150px;
     background-color: ${(props) => props.theme.color.neutra.cinza_fundo};
     grid-column-start: ${({ sideBarWidth }) =>
       sideBarWidth === "SIDEBAR_LARGE" ? "3" : "2"};
