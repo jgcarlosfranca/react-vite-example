@@ -1,5 +1,5 @@
-import { rowsUserFactory } from "./rowsUser";
-import { tokenLoginFactory } from "./tokenLogin";
+import { rowsUserFactory } from "./Login/rowsUser";
+import { tokenLoginFactory } from "./Login/tokenLogin";
 
 export const factoryModels = {
     rowsUserFactory,

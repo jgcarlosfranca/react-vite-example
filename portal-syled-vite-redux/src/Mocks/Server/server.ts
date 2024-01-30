@@ -1,6 +1,8 @@
 import { createServer, Factory, Model, Response } from "miragejs";
 import { factoryModels } from "../Model";
 import { endPointsPaths } from "../../routes/paths";
+import { userPerfilRes } from "../login/userPerfilMockRes";
+import { userCredentialMatches } from "../login/userCredentialsMatch";
 
 const BASE_URL = 'http://localhost:5579';
 
@@ -29,17 +31,43 @@ export function makeMirageServer() {
                 };
             });
 
+            /**
+       * API DE LOGIN
+       */
             this.post(endPointsPaths.login, async (schema, request) => {
-                //endPointsPaths.login
                 const attrs = JSON.parse(request.requestBody);
-                console.log(attrs);
-                if (attrs.email !== "admin@email.com" && attrs.senha !== "admin123") {
-                    return new Response(500, {}, { error: "Erro na solicitação POST" });
+                const result = userCredentialMatches.filter((users) => {
+                    if (
+                        attrs.email === users.user.email &&
+                        attrs.senha === users.user.password
+                    ) {
+                        return users.user;
+                    }
+                });
+
+                if (!result.length) {
+                    return;
                 }
+
+                if (
+                    attrs.email === result[0].user.email &&
+                    attrs.senha === result[0].user.password
+                ) {
+                    const perfil = userPerfilRes.filter((perfil) => {
+                        if (result[0].user.email === perfil.userPerfil.email) {
+                            return perfil.userPerfil;
+                        }
+                    });
+
+                    if (!perfil[0]) return;
+                    return perfil[0].userPerfil;
+                }
+
                 return {
                     token: schema.all("login").models,
                 };
             });
+
 
 
             this.passthrough();
