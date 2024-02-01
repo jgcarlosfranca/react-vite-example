@@ -21,7 +21,7 @@ export function makeMirageServer() {
         },
         routes() {
             // * --- INITIAL SETUP --- * //
-            this.timing = 10000;
+            this.timing = 1000;
             this.urlPrefix = BASE_URL;
 
             this.get(endPointsPaths.user, async (schema) => {
