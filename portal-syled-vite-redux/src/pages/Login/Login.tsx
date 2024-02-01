@@ -1,6 +1,8 @@
 import { useState, ChangeEvent } from 'react';
 import { useLoginMutation } from '../../redux/Feature/loginSlice';
 import Loading from '../TransitionPages/Loading/Loading';
+import { useNavigate } from 'react-router-dom';
+import { paths } from '../../routes/paths';
 
 interface IFormState {
   user: string;
@@ -10,6 +12,7 @@ interface IFormState {
 
 
 const Login = () => {
+  const navigate = useNavigate();
   const [loginApi, { isLoading, isError }] = useLoginMutation();
   const [formFields, setFormFields] = useState<IFormState>({
     user: "",
@@ -35,11 +38,15 @@ const Login = () => {
   ): Promise<void> => {
     event?.preventDefault();
     try {
-      const autResponse = await loginApi({
+      const authReponse = await loginApi({
         email: formFields.user,
         senha: formFields.password,
       });
-      console.log('resposta', autResponse)
+      if ('data' in authReponse) {
+        sessionStorage.setItem("authToken", authReponse?.data?.token);
+        navigate(paths.Land);
+      }
+
     } catch (error) {
       console.log(error);
     }
