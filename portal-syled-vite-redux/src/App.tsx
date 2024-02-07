@@ -3,10 +3,8 @@ import PrivateRoute from './routes/Private';
 import Login from './pages/Login/Login';
 import LandPage from './pages/LandPage/LandPage';
 import { paths } from './routes/paths';
-import './App.css'
 
 function App() {
-
   return (
     <>
       <Router>

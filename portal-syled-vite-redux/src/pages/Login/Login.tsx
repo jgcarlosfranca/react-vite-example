@@ -3,6 +3,8 @@ import { useLoginMutation } from '../../redux/Feature/loginSlice';
 import Loading from '../TransitionPages/Loading/Loading';
 import { useNavigate } from 'react-router-dom';
 import { paths } from '../../routes/paths';
+import styled from 'styled-components';
+import montanhaImage from '../../assets/Images/montanha-login-page.jpg'
 
 interface IFormState {
   user: string;
@@ -10,6 +12,45 @@ interface IFormState {
   canSeePassword: boolean;
 }
 
+const LoginBackground = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(${montanhaImage});
+  background-repeat: no-repeat;
+  background-size: cover;
+`
+
+const LoginBoxWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  height:45%;
+  background-color: #f0f8ff81;
+  border-radius: 16px;
+`
+const LoginBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height:45%;
+  gap: 2rem;
+  input {
+    border-radius: 16px;
+    height:2.5rem;
+  }
+  button{
+    border-radius: 16px;
+    height:2.5rem;
+    background-color: #2E4362;
+    color: white;
+  }
+`
 
 const Login = () => {
   const navigate = useNavigate();
@@ -57,18 +98,23 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <input type='text' name='user' placeholder='Insira o usuario' value={formFields.user} onChange={(ev: ChangeEvent<HTMLInputElement>) =>
-        handleChangeInput(ev, setFormFields)
-      } />
-      <input type='password' name='password' placeholder='Insira a senha' value={formFields.password} onChange={(ev: ChangeEvent<HTMLInputElement>) =>
-        handleChangeInput(ev, setFormFields)
-      } />
-      <button onClick={
-        handleSubmit as unknown as React.MouseEventHandler<HTMLButtonElement>
-      }> Submit </button>
 
-    </div>
+    <LoginBackground>
+      <LoginBoxWrapper>
+        <LoginBox>
+          <input type='text' name='user' placeholder='Insira o usuario' value={formFields.user} onChange={(ev: ChangeEvent<HTMLInputElement>) =>
+            handleChangeInput(ev, setFormFields)
+          } />
+          <input type='password' name='password' placeholder='Insira a senha' value={formFields.password} onChange={(ev: ChangeEvent<HTMLInputElement>) =>
+            handleChangeInput(ev, setFormFields)
+          } />
+          <button onClick={
+            handleSubmit as unknown as React.MouseEventHandler<HTMLButtonElement>
+          }> Submit </button>
+        </LoginBox>
+      </LoginBoxWrapper>
+    </LoginBackground>
+
   )
 }
 
