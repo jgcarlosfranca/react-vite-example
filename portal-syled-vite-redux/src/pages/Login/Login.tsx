@@ -3,7 +3,7 @@ import { useLoginMutation } from '../../redux/Feature/loginSlice';
 import Loading from '../TransitionPages/Loading/Loading';
 import { useNavigate } from 'react-router-dom';
 import { paths } from '../../routes/paths';
-import { LoginBackground, LoginBox, LoginBoxWrapper } from './Login.styles';
+import { LoginBackground, LoginBox, LoginBoxWrapper, LoginTitle } from './Login.styles';
 
 interface IFormState {
   user: string;
@@ -62,6 +62,7 @@ const Login = () => {
     <LoginBackground>
       <LoginBoxWrapper>
         <LoginBox>
+          <LoginTitle> Bem Vindo! </LoginTitle>
           <input type='text' name='user' placeholder='Insira o usuario' value={formFields.user} onChange={(ev: ChangeEvent<HTMLInputElement>) =>
             handleChangeInput(ev, setFormFields)
           } />
