@@ -1,10 +1,47 @@
 //########## font https://pokepalettes.com/
-const Theme = {
+interface ISystemColorsStyles {
+  color: {
+
+    primaria: {
+      vermelho_fire: string,
+      semiTransparentblue: string,
+      blue: string,
+    },
+    secundaria: {
+      gray: string,
+      semiTransparentGray: string,
+
+    },
+    apoio: {},
+    alerta: { sucesso: string, erro: string, alerta: string },
+    neutra: {
+      neutra_background: string,
+      cinza_linhas: string,
+      cinza_texto: string,
+      cinza_icones: string,
+      cinza_fundo: string,
+      cinza_field_background: string,
+      preta: string,
+      branca: string,
+      transparent: string,
+      label_cinza: string,
+    },
+    opacity50: {
+    },
+  }
+}
+
+
+const Theme: ISystemColorsStyles = {
   color: {
     primaria: {
       vermelho_fire: "#de5239",
+      semiTransparentblue: '#2E4362',
+      blue: '#2E4399',
     },
     secundaria: {
+      gray: '#f0f8ff81',
+      semiTransparentGray: '#f0f8ff81',
 
     },
     apoio: {},
