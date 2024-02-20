@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import montanhaImage from '../../assets/Images/montanha-login-page.jpg'
+import { SystemColors } from '../../Styles/systemColors';
 
 export const LoginBackground = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ export const LoginBoxWrapper = styled.div`
   justify-content: flex-start;
   min-width: 30%;
   min-height:35%;
-  background-color: #f0f8ff81;
+  background-color: ${SystemColors.secundary.first.color};
   border-radius: 16px;
 `
 export const LoginBox = styled.div`
@@ -33,23 +34,28 @@ export const LoginBox = styled.div`
   input {
     border-radius: 16px;
     font-size: 1.225rem;
-    padding: 0 4px 0 16px;
+    padding: 4px 4px 4px 16px;
     background-color: transparent;
     border-width: 1px;
   }
   button{
     border-radius: 16px;
     font-size: 24px;
-    background-color: #2E4362;
+    background-color: ${SystemColors.main.first.color};
+    border-color: ${SystemColors.main.first.color};
     color: white;
     margin-bottom: 24px;
+    &:hover{
+      background-color: ${SystemColors.main.semiTransparent.color};
+    border-color: ${SystemColors.main.first.color};
+    }
   }
 `
 export const LoginTitle = styled.span`
   display: flex;
   font-size: 4rem;
   font-weight: bold;
-  color: #2E4362;
+  color: ${SystemColors.main.first.color};
   margin: 75px 0 1.25rem 0;
   justify-content: center;
   align-items: center;
